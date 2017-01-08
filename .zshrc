@@ -34,6 +34,7 @@ eval "$(tmuxifier init -)"
 alias ctags="`brew --prefix`/bin/ctags"
 create_tags(){ ctags -R `bundle show --paths` . }
 
+#<<<<<<< HEAD
 alias rzsh='source ~/.zshrc'
 alias b2b='mysql.server start; PADRINO_ENV=development SUPPLY_CHAIN_COMPANY=b2b DEPLOY_ENV=localhost DB_NAME=warehouse_b2b_development NO_AUTH=Y bundle exec padrino start -p 36081'
 alias b2c='MOCK=Y PADRINO_ENV=development SUPPLY_CHAIN_COMPANY=b2c ENABLE_REQ_RESP_LOGGING=true NO_AUTH=Y bundle exec padrino start -p 35081'
@@ -102,6 +103,8 @@ open_all_b2b_machines() { cd ~/Downloads/csshX-0.74; ./csshX --login kshitij.ban
 open_deployment_set_b2c_1() { cd ~/Downloads/csshX-0.74; ./csshX --login kshitij.banerjee kshitij.banerjee flo-warehouse-b2c-1.nm.flipkart.com flo-warehouse-b2c-3.nm.flipkart.com flo-warehouse-b2c-5.nm.flipkart.com flo-warehouse-b2c-7.nm.flipkart.com flo-warehouse-b2c-9.nm.flipkart.com flo-warehouse-b2c-11.nm.flipkart.com }
 open_deployment_set_b2c_2() { cd ~/Downloads/csshX-0.74; ./csshX --login kshitij.banerjee kshitij.banerjee flo-warehouse-b2c-2.nm.flipkart.com flo-warehouse-b2c-4.nm.flipkart.com flo-warehouse-b2c-6.nm.flipkart.com flo-warehouse-b2c-8.nm.flipkart.com flo-warehouse-b2c-8.nm.flipkart.com flo-warehouse-b2c-10.nm.flipkart.com flo-warehouse-b2c-12.nm.flipkart.com }
 
+#=======
+#>>>>>>> 4d54b57a75682ad8e0fa9db44ec8db2cad4ebe8f
 #extract_seconds() { grep -o '[[][0-9]*[.][0-9]*s' | grep -o '[0-9]*[.][0-9]*' }
 extract_seconds() { ctl | grep -o '[[][0-9][0-9]*[.][0-9]*s' | grep -o '[0-9][0-9]*[.][0-9]*' }
 #extract_mili_seconds() { grep -o ' [0-9]*ms' | grep -o '[0-9][0-9]*' }
