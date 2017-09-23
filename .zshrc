@@ -3,8 +3,11 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+export PATH="/opt/local/Homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/Users/ksbanerj/Desktop:/Users/ksbanerj/.rvm/bin:$HOME/.tmuxifier/bin:$PATH"
 ZSH_THEME="jonathan"
 
 
@@ -27,7 +30,6 @@ plugins=(git ruby gem history history-substring-search terminalapp brew zsh-synt
 ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH="/Users/ksbanerj/.rvm/gems/ruby-1.9.3-p551/bin:/Users/ksbanerj/.rvm/gems/ruby-1.9.3-p551@global/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/Users/ksbanerj/Desktop:/Users/ksbanerj/.rvm/bin:$HOME/.tmuxifier/bin:/opt/local/Homebrew/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #eval "$(tmuxifier init -)"
 alias ctags="`brew --prefix`/bin/ctags"
@@ -52,5 +54,14 @@ run_rubocop() {
   g s | awk '{print $2}' | grep -v 'app.rb' | grep -v 'Gemfile' | xargs  rubocop -a
 }
 
+get(){
+  curl -X GET "$1"
+}
 alias vim=/opt/local/Homebrew/bin/vim
- [[ $TERM != "screen" ]] && exec tmux -2
+#[[ $TERM != "screen" ]] && exec tmux
+
+
+
+build_cm(){
+  curl -kX POST "https://ksbanerj:554e1c961faa8f67984999742de7cdb1@sl73bldpa01:8443/data/job/loyalty_PO/job/loyalty_PO_dev/view/All/job/PO-campaign-management-services-dev-deploy/buildWithParameters?token=ksbanerj&AppName="$1"&Server="$2"&ArtifactName="$1".war"
+}
