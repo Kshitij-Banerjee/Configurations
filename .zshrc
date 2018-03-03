@@ -7,8 +7,8 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export PATH="/opt/local/Homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/Users/ksbanerj/Desktop:/Users/ksbanerj/.rvm/bin:$HOME/.tmuxifier/bin:$PATH"
-ZSH_THEME="jonathan"
+export PATH="/usr/local/Homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/Users/kshitijbanerjee/Desktop:/Users/kshitijbanerjee/.rvm/bin:$HOME/.tmuxifier/bin:$PATH"
+ZSH_THEME="agnoster"
 
 
 plugins=(git ruby gem history history-substring-search terminalapp brew zsh-syntax-highlighting )
@@ -44,24 +44,11 @@ clean_tmux(){
   done
 }
 
-cd ~/visa
-
 bindkey -v
 tac () { awk '1 { last = NR; line[last] = $0; } END { for (i = last; i > 0; i--) { print line[i]; } }' }
 ctl() { sed -E "s/"$'\E'"\[([0-9]{1,2}(;[0-9]{1,2})*)?m//g" }
 
-run_rubocop() {
-  g s | awk '{print $2}' | grep -v 'app.rb' | grep -v 'Gemfile' | xargs  rubocop -a
-}
-
 get(){
   curl -X GET "$1"
 }
-alias vim=/opt/local/Homebrew/bin/vim
 #[[ $TERM != "screen" ]] && exec tmux
-
-
-
-build_cm(){
-  curl -kX POST "https://ksbanerj:554e1c961faa8f67984999742de7cdb1@sl73bldpa01:8443/data/job/loyalty_PO/job/loyalty_PO_dev/view/All/job/PO-campaign-management-services-dev-deploy/buildWithParameters?token=ksbanerj&AppName="$1"&Server="$2"&ArtifactName="$1".war"
-}
