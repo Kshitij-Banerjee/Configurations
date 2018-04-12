@@ -21,10 +21,27 @@
   'alt-cmd-enter': '!unset'
   'ctrl-]': 'hyperclick:confirm-cursor'
 
+'atom-text-editor:not([mini]).typescript-editor':
+  'shift-f12': '!unset'
+  'cmd-g': 'typescript:find-references'
+
 'atom-text-editor.vim-mode:not(.insert-mode)':
   ': w': 'core:save'
   ': w a': 'window:save-all'
   ': w': 'core:save'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'ctrl-w ctrl-v': '!unset'
+  'ctrl-a v': 'pane:split-right-and-copy-active-item'
+  'ctrl-w ctrl-s': '!unset'
+  'ctrl-a b': 'pane:split-down-and-copy-active-item'
+
+'body':
+  'cmd-k cmd-left': '!unset'
+  'ctrl-a h': 'window:focus-pane-on-left'
+  'ctrl-a l': 'window:focus-pane-on-right'
+  'ctrl-a j': 'window:focus-pane-below'
+  'ctrl-a k': 'window:focus-pane-above'
 
 'atom-workspace':
   'ctrl-h': 'last-cursor-position:previous'
